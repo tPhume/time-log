@@ -1,6 +1,12 @@
 import React from "react";
 import ReactDom from "react-dom";
+import * as firebase from "firebase/app";
 
+// Initialize firebase app
+// eslint-disable-next-line no-undef
+firebase.initializeApp(FIREBASE_CONFIG);
+
+// Main React component
 class Main extends React.Component {
   constructor(props) {
     super(props);
