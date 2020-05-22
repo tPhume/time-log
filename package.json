@@ -5,7 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "build": "webpack",
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "format": "prettier \"src/**/*.{js,html,jsx}\" --write"
   },
   "author": "tphume",
   "license": "ISC",
