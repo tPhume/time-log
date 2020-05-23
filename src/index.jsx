@@ -10,13 +10,27 @@ firebase.initializeApp(FIREBASE_CONFIG);
 class Main extends React.Component {
   constructor(props) {
     super(props);
+
+    this.emailChange = this.emailChange.bind(this);
+    this.passwordChange = this.passwordChange.bind(this);
+
     this.state = {
+      email: "",
+      password: "",
       isLoggedin: false,
     };
   }
 
+  emailChange(event) {
+    this.setState({ email: event.target.value });
+  }
+
+  passwordChange(event) {
+    this.setState({ password: event.target.value });
+  }
+
   render() {
-    const { isLoggedin } = this.state;
+    const { isLoggedin, email, password } = this.state;
 
     // Proceed to render application
     if (isLoggedin) {
@@ -26,13 +40,24 @@ class Main extends React.Component {
     // Show login form
     return (
       <div>
-        <h1>You are not logged in!</h1>
-        <button
-          type="submit"
-          onClick={() => this.setState({ isLoggedin: true })}
-        >
-          Login
-        </button>
+        <div>Sign In</div>
+        <form>
+          <input
+            type="text"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={this.emailChange}
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Password"
+            onChange={this.passwordChange}
+          />
+          <input type="submit" name="login" value="Login" />
+        </form>
       </div>
     );
   }
