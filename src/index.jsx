@@ -13,6 +13,7 @@ class Main extends React.Component {
 
     this.emailChange = this.emailChange.bind(this);
     this.passwordChange = this.passwordChange.bind(this);
+    this.login = this.login.bind(this);
 
     this.state = {
       email: "",
@@ -29,6 +30,11 @@ class Main extends React.Component {
     this.setState({ password: event.target.value });
   }
 
+  login(event) {
+    alert("Login submitted");
+    event.preventDefault();
+  }
+
   render() {
     const { isLoggedin, email, password } = this.state;
 
@@ -41,7 +47,7 @@ class Main extends React.Component {
     return (
       <div>
         <div>Sign In</div>
-        <form>
+        <form onSubmit={this.login}>
           <input
             type="text"
             name="email"
