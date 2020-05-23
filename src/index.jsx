@@ -2,6 +2,8 @@ import React from "react";
 import ReactDom from "react-dom";
 import * as firebase from "firebase/app";
 
+import "./index.css";
+
 // Initialize firebase app
 // eslint-disable-next-line no-undef
 firebase.initializeApp(FIREBASE_CONFIG);
@@ -45,7 +47,7 @@ class Main extends React.Component {
 
     // Show login form
     return (
-      <div>
+      <div className="login">
         <div>Sign In</div>
         <form onSubmit={this.login}>
           <input
