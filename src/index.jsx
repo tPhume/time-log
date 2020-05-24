@@ -13,28 +13,11 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
 
-    this.emailChange = this.emailChange.bind(this);
-    this.passwordChange = this.passwordChange.bind(this);
-    this.login = this.login.bind(this);
-
     this.state = {
       email: "",
       password: "",
       isLoggedin: false,
     };
-  }
-
-  emailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  passwordChange(event) {
-    this.setState({ password: event.target.value });
-  }
-
-  login(event) {
-    alert("Login submitted");
-    event.preventDefault();
   }
 
   render() {
@@ -47,22 +30,31 @@ class Main extends React.Component {
 
     // Show login form
     return (
-      <div className="login">
+      <div className="login-box">
         <div>Sign In</div>
-        <form onSubmit={this.login}>
+        <form
+          onSubmit={() => {
+            // eslint-disable-next-line no-alert
+            alert("Not implemented yet");
+          }}
+        >
           <input
             type="text"
             name="email"
             value={email}
             placeholder="Email"
-            onChange={this.emailChange}
+            onChange={(event) => {
+              this.setState({ email: event.target.value });
+            }}
           />
           <input
             type="password"
             name="password"
             value={password}
             placeholder="Password"
-            onChange={this.passwordChange}
+            onChange={(event) => {
+              this.setState({ password: event.target.value });
+            }}
           />
           <input type="submit" name="login" value="Login" />
         </form>
