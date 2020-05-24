@@ -31,14 +31,18 @@ class Main extends React.Component {
     // Show login form
     return (
       <div className="login-box">
-        <div>Sign In</div>
         <form
+          className="login-form"
           onSubmit={() => {
             // eslint-disable-next-line no-alert
             alert("Not implemented yet");
           }}
         >
+          <label className="label" htmlFor="email">
+            Email
+          </label>
           <input
+            className="text"
             type="text"
             name="email"
             value={email}
@@ -47,7 +51,11 @@ class Main extends React.Component {
               this.setState({ email: event.target.value });
             }}
           />
+          <label className="label" htmlFor="passwordl">
+            Password
+          </label>
           <input
+            className="password"
             type="password"
             name="password"
             value={password}
@@ -56,7 +64,7 @@ class Main extends React.Component {
               this.setState({ password: event.target.value });
             }}
           />
-          <input type="submit" name="login" value="Login" />
+          <input className="submit" type="button" name="login" value="Login" />
         </form>
       </div>
     );
