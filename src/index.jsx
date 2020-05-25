@@ -11,6 +11,8 @@ import "./index.css";
 // eslint-disable-next-line no-undef
 firebase.initializeApp(FIREBASE_CONFIG);
 
+let user;
+
 // Main React component
 class Main extends React.Component {
   constructor(props) {
@@ -34,9 +36,10 @@ class Main extends React.Component {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        const { user } = res;
+        ({ user } = res);
         // eslint-disable-next-line no-alert
-        alert(`User logged in successfully. User: ${user}`);
+        alert(`User logged in successfully. User: ${user.email}`);
+        this.setState({ password: "", isLoggedin: true });
       })
       .catch((error) => {
         const { code, message } = error;
