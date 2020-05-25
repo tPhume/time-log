@@ -7,6 +7,15 @@ body {
   background-color: #363333;
 }
 
+#root {
+  /* Display type */
+  display: flex;
+  
+  /* Layout position */
+  align-items: center;
+  justify-content: center;
+}
+
 /* Login page styles*/
 .login-box {
   /* Display type */
