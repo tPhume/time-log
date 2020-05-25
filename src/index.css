@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
   color: #e16428;
+  font-family: "B612";
 }
 
 body {
@@ -54,15 +55,19 @@ body {
 .login-form .label {
   /* Size specification */
   width: 100%;
+
+  /* Font */
+  font-weight: bold;
 }
 
 .login-form .text, .login-form .password {
   /* Spacing specification */
   margin-top: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 
   /* Appearance */
   background-color: #363333;
+  color: #da703fbd;
   border: 0px;
 
   /* Size specification */
@@ -79,9 +84,12 @@ body {
   height: 30px;
 
   /* Spacing specification */
-  margin-top: 10px;
+  margin-top: 5px;
   
   /* Appearance */
   border-radius: 6px;
   background-color: #272121;
+
+  /* Font */
+  font-weight: bold;
 }
