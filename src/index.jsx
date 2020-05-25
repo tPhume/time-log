@@ -1,6 +1,9 @@
 import React from "react";
 import ReactDom from "react-dom";
+
+// Firebase modules
 import * as firebase from "firebase/app";
+import "firebase/auth";
 
 import "./index.css";
 
@@ -18,6 +21,28 @@ class Main extends React.Component {
       password: "",
       isLoggedin: false,
     };
+
+    // Bind functions to this object context
+    this.login = this.login.bind(this);
+  }
+
+  // Handles login button event
+  login() {
+    const { email, password } = this.state;
+
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((res) => {
+        const { user } = res;
+        // eslint-disable-next-line no-alert
+        alert(`User logged in successfully. User: ${user}`);
+      })
+      .catch((error) => {
+        const { code, message } = error;
+        // eslint-disable-next-line no-alert
+        alert(`An Error occured. Code: ${code}. Message: ${message}`);
+      });
   }
 
   render() {
@@ -64,7 +89,7 @@ class Main extends React.Component {
             name="login"
             value="Login"
             // eslint-disable-next-line no-alert
-            onClick={() => alert("Not implemented yet")}
+            onClick={this.login}
           />
         </form>
       </div>
