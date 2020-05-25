@@ -32,6 +32,9 @@ body {
   /* Layout position */
   align-items: center;
   justify-content: center;
+
+  /* Appearance */
+  border-radius: 6px;
 }
 
 .login-form {
@@ -74,6 +77,9 @@ body {
   /* Size specification */
   width: 50%;
   height: 30px;
+
+  /* Spacing specification */
+  margin-top: 10px;
   
   /* Appearance */
   border-radius: 6px;
