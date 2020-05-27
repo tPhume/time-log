@@ -5,7 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "build": "webpack",
-    "start:dev": "webpack-dev-server"
+    "start:dev": "webpack-dev-server",
+    "format": "prettier \"src/**/*.{js,html,jsx}\" --write"
   },
   "author": "tphume",
   "license": "ISC",
@@ -26,11 +27,14 @@
     "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "prettier": "^2.0.5",
+    "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "dotenv": "^8.2.0",
+    "firebase": "^7.14.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

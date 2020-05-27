@@ -7,7 +7,9 @@
   "plugins": [
     "react-hooks"
   ],
-  "rules": {},
+  "rules": {
+    "jsx-a11y/label-has-associated-control": 0
+  },
   "env": {
       "browser": true,
       "es6": true,
