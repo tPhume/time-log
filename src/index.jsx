@@ -5,6 +5,13 @@ import ReactDom from "react-dom";
 import * as firebase from "firebase/app";
 import "firebase/auth";
 
+// Components
+import Profile from "./profile/profile";
+import Timer from "./timer/timer";
+import Progress from "./progress/progress";
+import Records from "./records/records";
+
+// CSS
 import "./index.css";
 
 // Initialize firebase app
@@ -59,7 +66,18 @@ class Main extends React.Component {
 
     // Proceed to render application
     if (user) {
-      return <h1>You are logged in as {user.email}!</h1>;
+      return (
+        <div className="main-box">
+          <div className="section-box">
+            <Profile />
+            <Timer />
+            <Progress />
+          </div>
+          <div className="section-box">
+            <Records />
+          </div>
+        </div>
+      );
     }
 
     // Show login form
