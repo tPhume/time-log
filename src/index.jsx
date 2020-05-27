@@ -11,8 +11,6 @@ import "./index.css";
 // eslint-disable-next-line no-undef
 firebase.initializeApp(FIREBASE_CONFIG);
 
-let user;
-
 // Main React component
 class Main extends React.Component {
   constructor(props) {
@@ -21,11 +19,17 @@ class Main extends React.Component {
     this.state = {
       email: "",
       password: "",
+      user: "",
       isLoggedin: false,
     };
 
     // Bind functions to this object context
     this.login = this.login.bind(this);
+
+    // Attach observable to firebase user
+    firebase.auth().onAuthStateChanged((user) => {
+      this.setState({ user });
+    });
   }
 
   // Handles login button event
@@ -35,10 +39,7 @@ class Main extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then((res) => {
-        ({ user } = res);
-        // eslint-disable-next-line no-alert
-        alert(`User logged in successfully. User: ${user.email}`);
+      .then(() => {
         this.setState({ password: "", isLoggedin: true });
       })
       .catch((error) => {
@@ -49,11 +50,11 @@ class Main extends React.Component {
   }
 
   render() {
-    const { isLoggedin, email, password } = this.state;
+    const { isLoggedin, email, password, user } = this.state;
 
     // Proceed to render application
     if (isLoggedin) {
-      return <h1>You are logged in!</h1>;
+      return <h1>You are logged in as {user.email}!</h1>;
     }
 
     // Show login form
