@@ -11,6 +11,15 @@ import "./index.css";
 // eslint-disable-next-line no-undef
 firebase.initializeApp(FIREBASE_CONFIG);
 
+firebase
+  .auth()
+  .setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .catch((error) => {
+    const { code, message } = error;
+    // eslint-disable-next-line no-alert
+    alert(`An Error occured. Code: ${code}. Message: ${message}`);
+  });
+
 // Main React component
 class Main extends React.Component {
   constructor(props) {
@@ -19,8 +28,7 @@ class Main extends React.Component {
     this.state = {
       email: "",
       password: "",
-      user: "",
-      isLoggedin: false,
+      user: firebase.auth().currentUser,
     };
 
     // Bind functions to this object context
@@ -39,9 +47,6 @@ class Main extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        this.setState({ password: "", isLoggedin: true });
-      })
       .catch((error) => {
         const { code, message } = error;
         // eslint-disable-next-line no-alert
@@ -50,10 +55,10 @@ class Main extends React.Component {
   }
 
   render() {
-    const { isLoggedin, email, password, user } = this.state;
+    const { email, password, user } = this.state;
 
     // Proceed to render application
-    if (isLoggedin) {
+    if (user) {
       return <h1>You are logged in as {user.email}!</h1>;
     }
 
