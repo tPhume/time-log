@@ -69,7 +69,11 @@ class Main extends React.Component {
       return (
         <div className="main-box">
           <div className="section-box">
-            <Profile />
+            <Profile
+              displayName={user.displayName}
+              photoURL={user.photoURL}
+              email={user.email}
+            />
             <Timer />
             <Progress />
           </div>

@@ -110,7 +110,7 @@ body {
   height: 30px;
 }
 
-.login-form .submit {
+.submit {
   /* Layout position */
   align-self: center;
 
@@ -130,7 +130,7 @@ body {
   font-weight: bold;
 }
 
-.login-form .submit:hover {
+.submit:hover {
   background-color: #e16428;
   color: #f6e9e9;
 }
