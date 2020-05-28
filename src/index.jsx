@@ -54,6 +54,9 @@ class Main extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.setState({ email: "", password: "" });
+      })
       .catch((error) => {
         const { code, message } = error;
         // eslint-disable-next-line no-alert
