@@ -104,7 +104,7 @@ class Main extends React.Component {
               this.setState({ email: event.target.value });
             }}
           />
-          <label className="label" htmlFor="passwordl">
+          <label className="label" htmlFor="password">
             Password
           </label>
           <input
