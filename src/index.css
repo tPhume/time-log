@@ -6,6 +6,11 @@
 
 body {
   background-color: #363333;
+  display: flex;
+
+  /* Layout position */
+  align-items: center;
+  justify-content: center;
 }
 
 #root {
@@ -17,7 +22,7 @@ body {
   justify-content: center;
 
   /* Size specification */
-  width: 100%;
+  width: 1400px;
   height: 750px;
 }
 
@@ -25,7 +30,7 @@ body {
 .main-box {
   /* Display type */
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 
   /* Size specification */
   width: 100%;
@@ -40,6 +45,8 @@ body {
   /* Size specification */
   width: 450px;
   height: 750px;
+
+  padding: 5px;
 }
 
 .section-box > * {
