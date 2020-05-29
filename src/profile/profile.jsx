@@ -23,7 +23,7 @@ function Profile(props) {
 
   return (
     <div className="profile-box">
-      <img src={photoURL} alt="current user" />
+      <img src={photoURL} alt="current user" className="profile-picture" />
       <div className="profile-info">
         <h2>{displayName}</h2>
         <h4>{email}</h4>

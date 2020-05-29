@@ -1,0 +1,43 @@
+.profile-box {
+  /* Display type */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* Size specification */
+  height: 80px;
+  width: 100%;
+}
+
+.profile-picture {
+  margin-left: 5px;
+
+  /* Size specification */
+  height: 64px;
+  width: 64px;
+}
+
+.profile-info {
+  margin-left: 5px;
+  flex-grow: 1;
+}
+
+.profile-info > * {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+.profile-info h4 {
+  font-size: 12px;
+}
+
+.profile-box .submit {
+  margin-bottom: 7px;
+  margin-right: 5px;
+
+  /* Size specification */
+  width: 100px;
+  height: 30px;
+
+  align-self: flex-end;
+}
